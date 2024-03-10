@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты теста</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Результаты теста</h1>
+    <div class="result-container">
+        <p id="resultText">Количество правильных ответов: </p>
+        <p id="totalText">Из общего количества вопросов: </p>
+    </div>
+    <button class="test-button" onclick="window.location.href='main.html'">Вернуться на главную</button>
+    <script>
+        var result = localStorage.getItem('result');
+        var matches = result.match(/\d+/g);
+        var correctAnswersCount = parseInt(matches[0]);
+        var totalQuestions = parseInt(matches[1]);
+
+        document.getElementById('resultText').textContent = "Количество правильных ответов: " + correctAnswersCount;
+        document.getElementById('totalText').textContent = "Из общего количества вопросов: " + totalQuestions;
+    </script>
+</body>
+</html>
